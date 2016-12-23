@@ -1,9 +1,11 @@
 #!/bin/sh
 
+./install
+
 free -m
 dd if=/dev/zero of=/swap bs=1M count=1024
 mkswap /swap
 swapon /swap
 free -m
 
-./build
+./run
