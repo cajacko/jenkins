@@ -1,10 +1,12 @@
 <?php
 
 exec('ssh-keygen -t rsa', $output, $status);
-$key = file_get_contents('~/.ssh/id_rsa.pub');
+var_dump($output);
+var_dump($status);
 
-var_dump($key);
-
+exec('cat ~/.ssh/id_rsa.pub', $output, $status);
+var_dump($output);
+var_dump($status);
 
 
 // require __DIR__ . './vendor/autoload.php';
