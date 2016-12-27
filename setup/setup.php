@@ -18,7 +18,7 @@ use DigitalOceanV2\DigitalOceanV2;
 
 // create an adapter with your access token which can be
 // generated at https://cloud.digitalocean.com/settings/applications
-$adapter = new BuzzAdapter($_SERVER['DIGITAL_OCEAN_API_KEY']);
+$adapter = new BuzzAdapter($_ENV['DIGITAL_OCEAN_API_KEY']);
 
 // create a digital ocean object with the previous adapter
 $digitalocean = new DigitalOceanV2($adapter);
