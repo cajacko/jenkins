@@ -4,7 +4,7 @@
 exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'', $output, $status);
 
 exec('cat ~/.ssh/id_rsa.pub', $output, $status);
-$output = array_slice($array, 1, -1);
+$output = array_slice($output, 1, -1);
 var_dump($output);
 
 var_dump(file_get_contents('~/.ssh/id_rsa.pub'));
