@@ -2,12 +2,12 @@
 // Need to figure out how to get this command to run with defaults
 
 exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'', $output, $status);
-var_dump($output);
-var_dump($status);
 
 exec('cat ~/.ssh/id_rsa.pub', $output, $status);
+$output = array_slice($array, 1, -1);
 var_dump($output);
-var_dump($status);
+
+var_dump(file_get_contents('~/.ssh/id_rsa.pub'));
 
 
 // require __DIR__ . './vendor/autoload.php';
