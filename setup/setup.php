@@ -5,9 +5,13 @@ exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'');
 
 exec('cat ~/.ssh/id_rsa.pub', $output, $status);
 $output = array_slice($output, 1, -1);
-var_dump($output);
+$key = '';
 
-var_dump(file_get_contents($_SERVER['HOME'] . '/.ssh/id_rsa.pub'));
+foreach ($output as $string) {
+  $key = $key . $string;
+}
+
+var_dump($key);
 
 
 // require __DIR__ . './vendor/autoload.php';
