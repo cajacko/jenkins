@@ -11,7 +11,7 @@ foreach ($output as $string) {
   $key = $key . $string;
 }
 
-require __DIR__ . './vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use DigitalOceanV2\Adapter\BuzzAdapter;
 use DigitalOceanV2\DigitalOceanV2;
