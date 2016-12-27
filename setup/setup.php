@@ -1,13 +1,13 @@
 <?php
 // Need to figure out how to get this command to run with defaults
 
-exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'', $output, $status);
+exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'');
 
 exec('cat ~/.ssh/id_rsa.pub', $output, $status);
 $output = array_slice($output, 1, -1);
 var_dump($output);
 
-var_dump(file_get_contents('~/.ssh/id_rsa.pub'));
+var_dump(file_get_contents($_SERVER['HOME'] . '/.ssh/id_rsa.pub'));
 
 
 // require __DIR__ . './vendor/autoload.php';
