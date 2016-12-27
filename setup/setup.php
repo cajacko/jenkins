@@ -1,7 +1,7 @@
 <?php
 // Need to figure out how to get this command to run with defaults
 
-exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N ''', $output, $status);
+exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'', $output, $status);
 var_dump($output);
 var_dump($status);
 
