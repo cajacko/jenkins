@@ -1,4 +1,4 @@
 #!/bin/sh
 
 docker build -t "charlie/jenkins" . --no-cache
-docker run -d -p 8080:8080 -p 50000:50000 -v /var/jenkins_home --name jenkins charlie/jenkins -e DIGITAL_OCEAN_API_KEY
+docker run -d -p 8080:8080 -p 50000:50000 -v /var/jenkins_home --name jenkins charlie/jenkins --env-file ./env

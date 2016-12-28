@@ -2,6 +2,6 @@ RUN
 
 git clone https://github.com/cajacko/jenkins.git
 cd jenkins
-export DIGITAL_OCEAN_API_KEY="VALUE"
+echo "DIGITAL_OCEAN_API_KEY=VALUE" >> .env
 chmod +x ./run
 ./run
