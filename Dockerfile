@@ -15,6 +15,4 @@ RUN chown -R jenkins:jenkins /home/jenkins
 USER jenkins
 
 RUN cd /home/jenkins/setup && composer install
-RUN ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
-RUN cat ~/.ssh/id_rsa.pub
-# RUN php /home/jenkins/setup/setup.php $DIGITAL_OCEAN_API_KEY
+RUN php /home/jenkins/setup/setup.php $DIGITAL_OCEAN_API_KEY

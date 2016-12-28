@@ -10,6 +10,8 @@ $ssh_key = $output;
 //   $ssh_key = $ssh_key . $string;
 // }
 
+print_r($ssh_key); exit;
+
 require __DIR__ . '/vendor/autoload.php';
 
 use DigitalOceanV2\Adapter\BuzzAdapter;
