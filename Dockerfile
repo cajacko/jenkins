@@ -14,4 +14,4 @@ USER jenkins
 
 RUN cd /home/jenkins/setup && composer install
 RUN printenv
-RUN php /home/jenkins/setup/setup.php
+RUN php /home/jenkins/setup/setup.php $DIGITAL_OCEAN_API_KEY
