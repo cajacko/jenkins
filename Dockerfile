@@ -18,4 +18,4 @@ RUN cd /home/jenkins/setup && composer install
 
 USER root
 
-# CMD php /home/jenkins/setup/setup.php
+CMD php /home/jenkins/setup/setup.php

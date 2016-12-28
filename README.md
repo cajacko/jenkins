@@ -9,7 +9,7 @@ chmod +x ./install
 
 Run the jenkins container with the following (This needs to be outside of a shell script to work, for some reason):
 
-docker run -d -p 8080:8080 -p 50000:50000 -v ~/keys:/var/jenkins_home/.ssh -v ~/backup:/var/jenkins_home --name jenkins charlie/jenkins
+docker run -d -p 8080:8080 -p 50000:50000 -v ~/keys:/var/jenkins_home/.ssh -v ~/keys:/root/.ssh -v ~/backup:/var/jenkins_home --name jenkins charlie/jenkins
 
 ---
 
