@@ -10,9 +10,13 @@ require __DIR__ . '/vendor/autoload.php';
 use DigitalOceanV2\Adapter\BuzzAdapter;
 use DigitalOceanV2\DigitalOceanV2;
 
+print_r($_SERVER);
+
 // create an adapter with your access token which can be
 // generated at https://cloud.digitalocean.com/settings/applications
 $adapter = new BuzzAdapter($_SERVER['DIGITAL_OCEAN_API_KEY']);
+
+var_dump($adapter);
 
 // create a digital ocean object with the previous adapter
 $digitalocean = new DigitalOceanV2($adapter);
