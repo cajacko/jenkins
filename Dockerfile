@@ -15,4 +15,4 @@ RUN chown -R jenkins:jenkins /home/jenkins
 USER jenkins
 
 RUN cd /home/jenkins/setup && composer install
-RUN php /home/jenkins/setup/setup.php $DIGITAL_OCEAN_API_KEY
+RUN php /home/jenkins/setup/setup.php
