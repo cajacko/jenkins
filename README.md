@@ -1,7 +1,7 @@
 To install all the dependencies run the following:
 
 git clone https://github.com/cajacko/jenkins.git && cd jenkins
-export DIGITAL_OCEAN_API_KEY="VALUE"
+echo "DIGITAL_OCEAN_API_KEY=VALUE" >> .env
 chmod +x ./install
 ./install
 
@@ -9,16 +9,13 @@ chmod +x ./install
 
 Run the jenkins container with the following (This needs to be outside of a shell script to work, for some reason):
 
-docker run -d -p 8080:8080 -p 50000:50000 -v /var/jenkins_home --name jenkins charlie/jenkins
+docker run -d -p 8080:8080 -p 50000:50000 -v ~/keys:/var/jenkins_home/.ssh -v ~/backup:/var/jenkins_home --name jenkins charlie/jenkins
 
 ---
 
 We then need to wait a few seconds for jenkins to start up, then run:
 
-docker exec -i -t jenkins /bin/bash
-ssh-keygen -f /var/jenkins_home/.ssh/id_rsa -t rsa -N '' && cp /var/jenkins_home/.ssh/id_rsa.pub /home/jenkins/ssh-key.txt
-php /home/jenkins/setup/setup.php
-cat /var/jenkins_home/secrets/initialAdminPassword
+cat ~/backup/secrets/initialAdminPassword
 
 ----
 

@@ -5,6 +5,8 @@ $ssh_key = file_get_contents('/var/jenkins_home/.ssh/id_rsa.pub');
 
 require __DIR__ . '/vendor/autoload.php';
 
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+$dotenv->load();
 use DigitalOceanV2\Adapter\BuzzAdapter;
 use DigitalOceanV2\DigitalOceanV2;
 
