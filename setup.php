@@ -7,7 +7,7 @@ var_dump($ssh_key);
 
 require __DIR__ . '/vendor/autoload.php';
 
-$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+$dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 use DigitalOceanV2\Adapter\BuzzAdapter;
 use DigitalOceanV2\DigitalOceanV2;

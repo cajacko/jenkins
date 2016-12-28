@@ -1,24 +1,9 @@
 To install all the dependencies run the following:
 
+---
 git clone https://github.com/cajacko/jenkins.git && cd jenkins
-echo "DIGITAL_OCEAN_API_KEY=ROOT" >> .env
+echo "DIGITAL_OCEAN_API_KEY=61e381b8f48fb2f481fcf921343d000db44f5c41b593111935509100f216c211" >> .env
 chmod +x ./install && ./install
-
 ---
-
-Run the jenkins container with the following (This needs to be outside of a shell script to work, for some reason):
-
-docker run -d -p 8080:8080 -p 50000:50000 -v ~/keys:/var/jenkins_home/.ssh -v ~/keys:/root/.ssh -v ~/backup:/var/jenkins_home --name jenkins charlie/jenkins
-
----
-
-We then need to wait a few seconds for jenkins to start up, then run:
-
-cat ~/backup/secrets/initialAdminPassword
-
-----
 
 The output of the last command will give you the admin password to login to the Jenkins server on http://IP_ADDRESS:8080
-
-
-# Why Don't I just install the whole jenkins thing with the shell command? As Docker is only needed when the environment has to be the same over and over again, especially with local, dev and live
