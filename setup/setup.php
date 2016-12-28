@@ -1,7 +1,10 @@
 <?php
 // Need to figure out how to get this command to run with defaults
 
-print_r($argv); exit;
+print_r($argv);
+print_r($_SERVER);
+print_r($_ENV);
+exit;
 
 exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'');
 
