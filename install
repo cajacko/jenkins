@@ -9,4 +9,4 @@ swapon /swap
 free -m
 mkdir ~/keys
 ssh-keygen -f ~/keys/id_rsa -t rsa -N ''
-docker build -t "charlie/jenkins" . --no-cache --build-arg DIGITAL_OCEAN_API_KEY=$DIGITAL_OCEAN_API_KEY
+docker build -t "charlie/jenkins" . --no-cache --build-arg
