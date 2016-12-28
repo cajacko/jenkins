@@ -25,8 +25,6 @@ $keys = $key->getAll();
 $id = 1;
 $continue_while = true;
 
-var_dump($keys);
-
 while ($continue_while) {
   $name = 'jenkins-' . $id;
   $exists = false;
@@ -44,9 +42,5 @@ while ($continue_while) {
   $id++;
 }
 
-var_dump($name);
-
 // return the created Key entity
 $createdKey = $key->create($name, $ssh_key);
-
-var_dump($createdKey);
