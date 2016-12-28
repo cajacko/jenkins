@@ -4,8 +4,8 @@
 exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'');
 
 exec('cat ~/.ssh/id_rsa.pub', $output, $status);
-$output = array_slice($output, 1, -1);
-$ssh_key = 'ssh-rsa ';
+// $output = array_slice($output, 1, -1);
+$ssh_key = '';
 
 foreach ($output as $string) {
   $ssh_key = $ssh_key . $string;
