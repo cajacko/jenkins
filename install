@@ -1,7 +1,8 @@
 #!/bin/sh
 
 apt update -y
-apt install -y docker.io
+apt install -y docker.io php5
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 free -m
 dd if=/dev/zero of=/swap bs=1M count=1024
 mkswap /swap
@@ -9,4 +10,6 @@ swapon /swap
 free -m
 mkdir ~/keys
 ssh-keygen -f ~/keys/id_rsa -t rsa -N ''
+composer install
+php /home/jenkins/setup/setup.php
 docker build -t "charlie/jenkins" . --no-cache

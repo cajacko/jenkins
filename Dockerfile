@@ -14,8 +14,6 @@ RUN chown -R jenkins:jenkins /home/jenkins
 
 USER jenkins
 
-RUN cd /home/jenkins/setup && composer install
+# RUN cd /home/jenkins/setup && composer install
 
-USER root
-
-CMD php /home/jenkins/setup/setup.php
+# USER root

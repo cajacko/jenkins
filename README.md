@@ -1,9 +1,8 @@
 To install all the dependencies run the following:
 
 git clone https://github.com/cajacko/jenkins.git && cd jenkins
-echo "DIGITAL_OCEAN_API_KEY=VALUE" >> .env
-chmod +x ./install
-./install
+echo "DIGITAL_OCEAN_API_KEY=ROOT" >> .env
+chmod +x ./install && ./install
 
 ---
 
@@ -20,3 +19,6 @@ cat ~/backup/secrets/initialAdminPassword
 ----
 
 The output of the last command will give you the admin password to login to the Jenkins server on http://IP_ADDRESS:8080
+
+
+# Why Don't I just install the whole jenkins thing with the shell command? As Docker is only needed when the environment has to be the same over and over again, especially with local, dev and live
