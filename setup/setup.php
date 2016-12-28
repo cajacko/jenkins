@@ -5,10 +5,10 @@ exec('ssh-keygen -f ~/.ssh/id_rsa.pub -t rsa -N \'\'');
 
 exec('cat ~/.ssh/id_rsa.pub', $output, $status);
 $output = array_slice($output, 1, -1);
-$key = '';
+$ssh_key = '';
 
 foreach ($output as $string) {
-  $key = $key . $string;
+  $ssh_key = $ssh_key . $string;
 }
 
 require __DIR__ . '/vendor/autoload.php';
@@ -31,12 +31,14 @@ $keys = $key->getAll();
 $id = 1;
 $continue_while = true;
 
+var_dump($keys);
+
 while ($continue_while) {
   $name = 'jenkins-' + $id;
   $exists = false;
 
-  foreach ($keys as $key) {
-    if ($key->name == $name) {
+  foreach ($keys as $single_key) {
+    if ($single_key->name == $name) {
       $exists = true;
     }
   }
@@ -48,7 +50,10 @@ while ($continue_while) {
   $id++;
 }
 
+var_dump($name);
+var_dump($ssh_key);
+
 // return the created Key entity
-$createdKey = $key->create($name, $key);
+$createdKey = $key->create($name, $ssh_key);
 
 var_dump($createdKey);
