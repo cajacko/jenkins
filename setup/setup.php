@@ -47,6 +47,6 @@ while ($continue_while) {
 var_dump($name);
 
 // return the created Key entity
-// $createdKey = $key->create($name, $ssh_key);
-//
-// var_dump($createdKey);
+$createdKey = $key->create($name, $ssh_key);
+
+var_dump($createdKey);
