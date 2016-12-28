@@ -15,5 +15,6 @@ RUN chown -R jenkins:jenkins /home/jenkins
 USER jenkins
 
 RUN cd /home/jenkins/setup && composer install
-# RUN ssh-keygen -f /var/jenkins_home/.ssh/id_rsa -t rsa -N '' && cp /var/jenkins_home/.ssh/id_rsa.pub /home/jenkins/ssh-key.txt
+RUN ssh-keygen -f /var/jenkins_home/.ssh/id_rsa -t rsa -N '' && cd /var/jenkins_home/.ssh && ls -a
+RUN ls -a
 # RUN php /home/jenkins/setup/setup.php

@@ -1,7 +1,7 @@
 <?php
 // Need to figure out how to get this command to run with defaults
 
-$ssh_key = file_get_contents(__DIR__ . '/../ssh-key.txt');
+$ssh_key = file_get_contents('/var/jenkins_home/.ssh/id_rsa.pub');
 
 require __DIR__ . '/vendor/autoload.php';
 
