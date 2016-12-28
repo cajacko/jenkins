@@ -1,8 +1,7 @@
 <?php
 // Need to figure out how to get this command to run with defaults
 
-exec('cat /var/jenkins_home/.ssh/id_rsa.pub', $output, $status);
-$ssh_key = $output[0];
+$ssh_key = file_get_contents('ssh-key.txt');
 
 require __DIR__ . '/vendor/autoload.php';
 
