@@ -3,12 +3,16 @@
 
 $ssh_key = file_get_contents('/var/jenkins_home/.ssh/id_rsa.pub');
 
+var_dump($ssh_key);
+
 require __DIR__ . '/vendor/autoload.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 use DigitalOceanV2\Adapter\BuzzAdapter;
 use DigitalOceanV2\DigitalOceanV2;
+
+print_r($_SERVER);
 
 // create an adapter with your access token which can be
 // generated at https://cloud.digitalocean.com/settings/applications
@@ -42,5 +46,9 @@ while ($continue_while) {
   $id++;
 }
 
+var_dump($name);
+
 // return the created Key entity
 $createdKey = $key->create($name, $ssh_key);
+
+var_dump($createdKey);
