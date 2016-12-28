@@ -2,3 +2,9 @@
 
 apt update -y
 apt install -y docker.io
+free -m
+dd if=/dev/zero of=/swap bs=1M count=1024
+mkswap /swap
+swapon /swap
+free -m
+docker build -t "charlie/jenkins" . --no-cache --build-arg DIGITAL_OCEAN_API_KEY=$DIGITAL_OCEAN_API_KEY
