@@ -1,7 +1,11 @@
 #!/bin/sh
 
-apt update -y
-apt install -y docker.io php5
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
+# apt update -y
+apt-get update -y
+# apt install -y php5
+apt-get install -y php
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 free -m
 dd if=/dev/zero of=/swap bs=1M count=1024
