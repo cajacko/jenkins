@@ -16,4 +16,4 @@ USER jenkins
 
 RUN cd /home/jenkins/setup && composer install
 
-CMD php /home/jenkins/setup/setup.php
+# CMD php /home/jenkins/setup/setup.php

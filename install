@@ -7,5 +7,6 @@ dd if=/dev/zero of=/swap bs=1M count=1024
 mkswap /swap
 swapon /swap
 free -m
-ssh-keygen -f ~/jenkins/keys/id_rsa -t rsa -N
+mkdir ~/keys
+ssh-keygen -f ~/keys/id_rsa -t rsa -N ''
 docker build -t "charlie/jenkins" . --no-cache --build-arg DIGITAL_OCEAN_API_KEY=$DIGITAL_OCEAN_API_KEY
