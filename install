@@ -6,6 +6,7 @@ echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenk
 apt-get update -y
 apt-get install -y php jenkins
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+composer install
 
 # Set swap memory
 free -m
@@ -14,11 +15,13 @@ mkswap /swap
 swapon /swap
 free -m
 
+# Switch user
+su - jenkins
+
 # Create ssh keys
 ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
 
 # Save ssh keys to digital ocean?
-composer install
 php /root/jenkins/setup.php
 
 # Output the Jenkins admin password

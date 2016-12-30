@@ -1,7 +1,7 @@
 <?php
 // Need to figure out how to get this command to run with defaults
 
-$ssh_key = file_get_contents('/root/.ssh/id_rsa.pub');
+$ssh_key = file_get_contents('/var/lib/jenkins/.ssh/id_rsa.pub');
 
 var_dump($ssh_key);
 
