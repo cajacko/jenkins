@@ -17,12 +17,3 @@ free -m
 
 # Switch user
 su - jenkins
-
-# Create ssh keys
-ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
-
-# Save ssh keys to digital ocean?
-php /root/jenkins/setup.php
-
-# Output the Jenkins admin password
-cat /var/lib/jenkins/secrets/initialAdminPassword
