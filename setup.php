@@ -5,8 +5,19 @@ $ssh_key = file_get_contents('/var/lib/jenkins/.ssh/id_rsa.pub');
 
 require __DIR__ . '/vendor/autoload.php';
 
+// Load .env
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
+
+// Check if .env is set correctly
+if (!$_SERVER['JENKINS_TAG_NAME']) {
+  throw new Exception('JENKINS_TAG_NAME does not exist in .env');
+}
+
+if (!$_SERVER['DIGITAL_OCEAN_API_KEY']) {
+  throw new Exception('DIGITAL_OCEAN_API_KEY does not exist in .env');
+}
+
 use DigitalOceanV2\Adapter\BuzzAdapter;
 use DigitalOceanV2\DigitalOceanV2;
 
@@ -22,25 +33,21 @@ $key = $digitalocean->key();
 
 // return a collection of Key entity
 $keys = $key->getAll();
-$id = 1;
-$continue_while = true;
 
-while ($continue_while) {
-  $name = 'jenkins-' . $id;
-  $exists = false;
+// Var to indicate whether the digital ocean key name already exists
+$exists = false;
 
-  foreach ($keys as $single_key) {
-    if ($single_key->name == $name) {
-      $exists = true;
-    }
+// See if the specified key name tag exists, and set bool to $exists
+foreach ($keys as $single_key) {
+  if ($single_key->name == $_SERVER['JENKINS_TAG_NAME']) {
+    $exists = true;
   }
-
-  if (!$exists) {
-    $continue_while = false;
-  }
-
-  $id++;
 }
 
-// return the created Key entity
-$createdKey = $key->create($name, $ssh_key);
+// If the key tag name already exists then error, otherwise add a new key
+if ($exists) {
+  throw new Exception('Key name already exists: ' . $_SERVER['JENKINS_TAG_NAME']);
+} else {
+  // return the created Key entity
+  $createdKey = $key->create($_SERVER['JENKINS_TAG_NAME'], $ssh_key);
+}
